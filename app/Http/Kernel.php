@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+
     ];
 
     /**
@@ -36,13 +37,23 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // \App\Http\Middleware\UserActivity::class,
+            \App\Http\Middleware\CheckBanned::class,
         ],
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+    ];
+
+    protected $routeMiddleware = [
+        // ...
+        'is.admin' => \App\Http\Middleware\IsAdmin::class,
+        'is.mod' => \App\Http\Middleware\IsMod::class,
+        // 'view.count' => \App\Http\Middleware\ViewCountMiddleware::class,
+        'is.admin.or.mod' => \App\Http\Middleware\IsAdminOrMod::class,
     ];
 
     /**
