@@ -217,4 +217,11 @@ class UserController extends Controller
         $users = User::where('username', 'like', $query . '%')->limit(5)->get();
         return response()->json(['users' => $users]);
     }
+
+    public function show(string $userId)
+    {
+        $users = User::find($userId);
+        $user_roles = User_role::all();
+        return view('admin.pages.view_user', compact(['users', 'user_roles']));
+    }
 }

@@ -5,7 +5,7 @@
     </div>
 
     <!--logo start-->
-    <a href="{{ route('admin.home') }}" class="logo" style="color:  #fff;">Forum administration</span></a>
+    <a href="{{ route('admin.home') }}" class="logo" style="color:  #fff;">Rental Store administration</span></a>
     <!--logo end-->
 
     <div class="nav search-row" id="top_menu">

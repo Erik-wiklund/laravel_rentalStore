@@ -32,8 +32,20 @@
         <!-- Page Content -->
         <main>
             {{-- {{ $slot }} --}}
+            @yield('content')
         </main>
     </div>
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; {{ date('Y') }} RentalStore. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-blue-400 mx-2">Terms</a>
+                <a href="#" class="text-blue-400 mx-2">Privacy</a>
+                <a href="#" class="text-blue-400 mx-2">Contact</a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

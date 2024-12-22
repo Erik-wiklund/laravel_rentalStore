@@ -39,7 +39,7 @@
                         <i class="fa fa-users"></i>
                         <div class="count"></div>
                         <div class="title">Users</div>
-                        <div style="font-size: 32px">{{ $users }}</div>
+                        <div style="font-size: 32px">{{ $users->count() }}</div>
                     </div>
                     <!--/.info-box-->
                 </div>
@@ -47,74 +47,20 @@
 
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="info-box dark-bg">
-                        <i class="fa fa-question"></i>
-                        {{-- <div class="count">{{count($data['all_questions'])}}</div> --}}
-                        <div class="title">Questions</div>
+                        <i class="fa fa-comment"></i>
+                        <div class="title">Messages</div>
+                        <div style="font-size: 32px">{{ $contactMessages }}</div>
                     </div>
-                    <!--/.info-box-->
                 </div>
-                <!--/.col-->
-
-
-                <!--/.col-->
-
-            </div>
-            <!--/.row-->
-            <div class="row">
-
-                <div class="col-lg-12 col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h2><i class="fa fa-flag-o red"></i><strong>Registered Users</strong></h2>
-                            <div class="panel-actions">
-                                <a href="/dashboard/home" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
-                                <a href="/dashboard/home" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-                                <a href="/dashboard/home" class="btn-close"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table bootstrap-datatable countries">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (count($users) > 0)
-                                        @foreach ($users as $user)
-                                            <tr>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->role->name }}</td>
-                                                </td>
-
-
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                </tbody>
-                            </table>
-
-
-                        </div>
-
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box darkgrey-bg">
+                        <i class="fa fa-comment"></i>
+                        <div class="title">Messages</div>
+                        <div style="font-size: 32px">{{ $contactMessages }}</div>
                     </div>
-
                 </div>
-
             </div>
-            <!--/col-->
-
-            </div>
-
-
-
         </section>
-
-
     </section>
     <!--main content end-->
 @endsection

@@ -15,4 +15,9 @@ class AdminLog extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function targetUser()
+    {
+        return $this->belongsTo(User::class, 'resource_id');
+    }
 }

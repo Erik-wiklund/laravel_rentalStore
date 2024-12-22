@@ -61,7 +61,7 @@
                     <li class="active">
                         <a class="" href="/">
                             <i class="icon_house_alt"></i>
-                            <span>Forum index</span>
+                            <span>Rental store index</span>
                         </a>
                     </li>
                     <li class="sub-menu">
@@ -79,6 +79,26 @@
                                 </a>
                                 <ul class="sub">
                                     <li><a href="{{ route('category.new') }}">Create</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-edit"></i>
+                                    <span>TV-Shows</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="{{ route('tvshow.new') }}">Add</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-edit"></i>
+                                    <span>Movies</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="{{ route('movie.new') }}">Add</a></li>
                                 </ul>
                             </li>
                             <li class="sub-menu">
@@ -121,6 +141,18 @@
                         <a class="" href="{{ route('categories') }}">
                             <i class="fa fa-users"></i>
                             <span>Categories</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="{{ route('tvshows') }}">
+                            <i class="fa fa-users"></i>
+                            <span>TV-Shows</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="{{ route('movies') }}">
+                            <i class="fa fa-users"></i>
+                            <span>Movies</span>
                         </a>
                     </li>
 

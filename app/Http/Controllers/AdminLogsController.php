@@ -33,6 +33,8 @@ class AdminLogsController extends Controller
         $contextDescriptions = [
             'forum' => 'Forum Ban',
             'unbanForum' => 'Remove Forum Ban',
+            'addMovie' => 'Add movie',
+            'addTVShow' => 'Add TV Show'
         ];
 
         // Determine the context based on the 'context' input

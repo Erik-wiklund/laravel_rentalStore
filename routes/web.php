@@ -6,9 +6,11 @@ use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminUserRoleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\movieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\Tvshowcontroller;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +30,7 @@ Route::get('/', function () {
 });
 
 // Store routes with prefix and name
-Route::prefix('store')->name('store.')->group(function () {
+Route::prefix('index')->name('store.')->group(function () {
     // Show products list
     Route::get('/', [StoreController::class, 'index'])->name('index');
 
@@ -68,6 +70,20 @@ Route::group(['middleware' => 'is.admin', 'prefix' => 'admin'], function () {
     Route::get('/dashboard/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/dashboard/category/edit/{categoryId}', [CategoryController::class, 'edit'])->name('category.edit');
     Route::post('/dashboard/category/update/{categoryId}', [CategoryController::class, 'update'])->name('category.update');
+
+    // TV-shows Routes
+    Route::get('/dashboard/tvshow/new', [Tvshowcontroller::class, 'create'])->name('tvshow.new');
+    Route::post('/dashboard/tvshow/new', [Tvshowcontroller::class, 'store'])->name('tvshow.store');
+    Route::get('/dashboard/tvshows', [Tvshowcontroller::class, 'index'])->name('tvshows');
+    Route::get('/dashboard/tvshow/edit/{tvshowId}', [Tvshowcontroller::class, 'edit'])->name('tvshow.edit');
+    Route::post('/dashboard/tvshow/update/{tvshowId}', [Tvshowcontroller::class, 'update'])->name('tvshow.update');
+
+    // Movies Routes
+    Route::get('/dashboard/movie/new', [movieController::class, 'create'])->name('movie.new');
+    Route::post('/dashboard/movie/new', [movieController::class, 'store'])->name('movie.store');
+    Route::get('/dashboard/movies', [movieController::class, 'index'])->name('movies');
+    Route::get('/dashboard/movie/edit/{movieId}', [movieController::class, 'edit'])->name('movie.edit');
+    Route::post('/dashboard/movie/update/{movieId}', [movieController::class, 'update'])->name('movie.update');
 
     // User Routes in admin
     Route::get('/dashboard/users/new', [UserController::class, 'create'])->name('user.new');

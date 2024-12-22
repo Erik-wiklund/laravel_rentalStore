@@ -50,17 +50,6 @@
                                                 not forumbanned</span>
                                         @endif
                                     </div>
-                                    <div style="margin-top: 10px;">
-                                        @if (in_array($users->id, $bannedUserIds))
-                                            <span
-                                                style="background: red; padding: 5px 10px; color: white; border-radius: 5px;">User
-                                                Shoutbox Banned</span>
-                                        @else
-                                            <span
-                                                style="background: green; padding: 5px 10px; color: white; border-radius: 5px;">User
-                                                Not Shoutbox Banned</span>
-                                        @endif
-                                    </div>
                                 </div>
                             </div>
 
