@@ -89,9 +89,9 @@
                             </button>
                         </x-slot>
                         <x-slot name="content">
-                            {{-- <x-dropdown-link :href="route('profile.index', ['userId' => $user->id])">
+                            <x-dropdown-link :href="route('profile.index', ['userId' => Auth::user()->id])">
                                 {{ __('Profile') }}
-                            </x-dropdown-link> --}}
+                            </x-dropdown-link>
                             <div class="flex justify-center  flex-col">
                                 {{-- <x-dropdown-link style="margin: 0 !important;" :href="route('pm.index', ['userId' => $user->id])">
                                     {{ __('Private message') }}

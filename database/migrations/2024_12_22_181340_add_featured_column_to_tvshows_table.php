@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movies', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->decimal('rating');
+        Schema::table('tvshows', function (Blueprint $table) {
             $table->string('description');
-            $table->date('release_date');
-            $table->timestamps();
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movies');
+        Schema::table('tvshows', function (Blueprint $table) {
+            //
+        });
     }
 };
