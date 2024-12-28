@@ -77,6 +77,7 @@ Route::group(['middleware' => 'is.admin', 'prefix' => 'admin'], function () {
     Route::post('/dashboard/tvshow/new', [Tvshowcontroller::class, 'store'])->name('tvshow.store');
     Route::get('/dashboard/tvshows', [Tvshowcontroller::class, 'index'])->name('tvshows');
     Route::get('/dashboard/tvshow/edit/{tvshowId}', [Tvshowcontroller::class, 'edit'])->name('tvshow.edit');
+    Route::get('/dashboard/tvshow/{tvshowId}', [Tvshowcontroller::class, 'show'])->name('tvshow.display');
     Route::post('/dashboard/tvshow/update/{tvshowId}', [Tvshowcontroller::class, 'update'])->name('tvshow.update');
 
     // Movies Routes
