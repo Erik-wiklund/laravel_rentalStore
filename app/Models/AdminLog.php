@@ -20,4 +20,9 @@ class AdminLog extends Model
     {
         return $this->belongsTo(User::class, 'resource_id');
     }
+
+    public function tvshow()
+    {
+        return $this->belongsTo(tvshow::class, 'resource_id');
+    }
 }
