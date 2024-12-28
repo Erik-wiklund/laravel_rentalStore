@@ -10,4 +10,9 @@ class TVShow extends Model
     use HasFactory;
 
     protected $table = 'tvshows';
+
+    public function tvshow()
+    {
+        return $this->belongsTo(TVShow::class, 'tvshows_id');
+    }
 }
