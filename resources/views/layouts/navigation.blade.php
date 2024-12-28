@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
-    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8" style="background-color: #17a2b8 !important;">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8" style="background-color: #678b91 !important;">
         <div class="flex justify-between h-18">
             <div class="flex items-center">
                 <!-- Logo -->
@@ -21,8 +21,9 @@
                     <!-- Responsive Settings Options -->
                     <div>
                         <div class="px-4">
-                            <a class="navButtons" href="{{ route('login') }}">Login</a>
-                            <a class="navButtons" href="{{ route('register') }}">Register</a>
+                            <a class="navButtons bg-red-500 text-white p-3 rounded-md" href="{{ route('login') }}">Login</a>
+                            <a class="navButtons bg-red-500 text-white p-3 rounded-md"
+                                href="{{ route('register') }}">Register</a>
                         </div>
                     </div>
                 </div>
