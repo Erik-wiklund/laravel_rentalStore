@@ -47,14 +47,15 @@
                                             <!-- Access the user's name via the relationship -->
                                             <td>{{ $log->admin->role->name }}</td>
                                             <td>
-                                                @if ($log->resource_type === 'thread')
+                                                @if ($log->resource_type === 'tvshow')
                                                     <a
-                                                        href="{{ route('threads.show', ['subcategory' => $log->thread->sub_category_id, 'thread' => $log->thread->id]) }}">
-                                                        {!! $log->thread->title !!} ({{ $log->thread->id }})
+                                                        href="{{ route('tvshow.display', ['tvshowId' => $log->tvshow->id]) }}">
+                                                        {!! $log->tvshow->name !!}
+                                                        ({{ $log->tvshow->id }})
                                                     </a>
-                                                @elseif ($log->resource_type === 'thread' && !$log->threadName)
-                                                    {{ 'Unknown Thread' }}
-                                                @else
+                                                @elseif ($log->resource_type === 'tvshow' && !$log->tvshowName)
+                                                    {{ 'Unknown TV-Show' }}
+                                                @elseif ($log->resource_type === 'user' && $log->targetUser)
                                                     <a
                                                         href="{{ route('user.show', ['userId' => $log->targetUser->id]) }}">{!! $log->targetUser->username !!}</a>
                                                 @endif
