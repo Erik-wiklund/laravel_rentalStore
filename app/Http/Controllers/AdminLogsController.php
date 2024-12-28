@@ -34,7 +34,8 @@ class AdminLogsController extends Controller
             'forum' => 'Forum Ban',
             'unbanForum' => 'Remove Forum Ban',
             'addMovie' => 'Add movie',
-            'addTVShow' => 'Add TV Show'
+            'addTVShow' => 'Add TV Show',
+            'editTVShow' => 'Edit TV Show'
         ];
 
         // Determine the context based on the 'context' input
