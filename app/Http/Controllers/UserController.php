@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Intervention\Image\Laravel\Facades\Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class UserController extends Controller
 {
@@ -46,7 +48,7 @@ class UserController extends Controller
             'role_id' => 'required',
             'image' => 'image', // Add validation rule for the image upload
         ]);
-
+        $manager = new ImageManager(new Driver());
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -61,9 +63,8 @@ class UserController extends Controller
             // Move the uploaded image to the public/images folder with the generated filename
             $imagePath = public_path('images/' . $imageFileName);
             $request->image->move(public_path('images'), $imageFileName);
-
-            // Open the uploaded image using Intervention Image and resize it to fit within a 300x300 pixel box
-            Image::make($imagePath)->fit(300, 300)->save($imagePath);
+            $image = $manager->read($imagePath);
+            $image->scale(width: 300, height: 300)->save($imagePath);
 
             $user->image = $imageFileName;
         } else {
@@ -128,9 +129,9 @@ class UserController extends Controller
             // Move the uploaded image to the public/images folder with the new filename
             $imagePath = public_path('images/' . $newImageFileName);
             $request->image->move(public_path('images'), $newImageFileName);
+            $image->scale(width: 300, height: 300)->save($imagePath);
 
-            // Open the uploaded image using Intervention Image and resize it to fit within a 300x300 pixel box
-            Image::make($imagePath)->fit(300, 300)->save($imagePath);
+            $user->image = $imageFileName;
         }
 
         if ($request->name) {
