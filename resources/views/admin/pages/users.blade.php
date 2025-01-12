@@ -33,6 +33,7 @@
                                         <th>Name</th>
                                         <th>Username</th>
                                         <th>Email</th>
+                                        <th>Subscription</th>
                                         <th>Main role</th>
                                         <th>Ban from store ban</th>
                                         <th>View</th>
@@ -48,6 +49,31 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->username }}</td>
                                                 <td>{{ $user->email }}</td>
+                                                <td>
+                                                    {{ optional($user->subscription)->name ?? 'No active Subscription' }}
+
+                                                    <form action="{{ route('admin.users.update-subscription', $user) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('POST')
+
+                                                        <div class="form-group">
+                                                            <label for="subscription_id">Select Subscription</label>
+                                                            <select name="subscription_id" id="subscription_id"
+                                                                class="form-control">
+                                                                @foreach ($subscriptions as $subscription)
+                                                                    <option value="{{ $subscription->id }}"
+                                                                        {{ $user->subscription_id == $subscription->id ? 'selected' : '' }}>
+                                                                        {{ $subscription->name }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+
+                                                        <button type="submit" class="btn btn-primary">Update
+                                                            Subscription</button>
+                                                    </form>
+                                                </td>
                                                 <td>{{ optional($user->role)->name }}</td>
                                                 <td>
                                                     <div>
