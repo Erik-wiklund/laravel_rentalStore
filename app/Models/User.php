@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function subscription()
+    {
+        return $this->belongsTo(Subscription::class, 'subscription_id');
+    }
+
     public function role()
     {
         return $this->belongsTo(User_role::class, 'role_id');
@@ -36,6 +41,7 @@ class User extends Authenticatable
         'role_id',
         'image',
         'banned_until',
+        'subscription',
     ];
 
     /**
