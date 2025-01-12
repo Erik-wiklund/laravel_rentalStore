@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChatRoom;
+use App\Models\Subscription;
 use App\Models\User;
 // use Intervention\Image\Facades\Image;
 use App\Models\User_role;
@@ -23,8 +24,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(20);
+        $subscriptions = Subscription::all();
 
-        return view('admin.pages.users', compact(['users']));
+        return view('admin.pages.users', compact(['users', 'subscriptions']));
     }
 
     /**
