@@ -10,6 +10,7 @@ use App\Http\Controllers\movieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Tvshowcontroller;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -64,6 +65,11 @@ Route::group(['middleware' => 'is.admin', 'prefix' => 'admin'], function () {
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     Route::get('/users/{userId}', [UserController::class, 'show'])->name('user.show');
+    // Display the user edit page
+    Route::get('/admin/users/{user}/edit-subscription', [UserController::class, 'editSubscription'])->name('admin.users.edit-subscription');
+
+    // Update the user's subscription
+    Route::post('/admin/users/{user}/update-subscription', [UserController::class, 'updateSubscription'])->name('admin.users.update-subscription');
 
     // Category Routes
     Route::get('/dashboard/category/new', [CategoryController::class, 'create'])->name('category.new');
@@ -102,6 +108,10 @@ Route::group(['middleware' => 'is.admin', 'prefix' => 'admin'], function () {
     // Admin logs
     Route::get('/dashboard/admin-logs', [AdminLogsController::class, 'index'])->name('logs.index');
     Route::post('/dashboard/logs', [AdminLogsController::class, 'store'])->name('logs.store');
+
+    // Subscriptions
+
+    Route::get('/dashboard/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
 
     // Reports to admins
     Route::get('/dashboard/reports', [ReportController::class, 'index'])->name('reports.index');
