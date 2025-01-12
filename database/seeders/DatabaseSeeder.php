@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             TVShowSeeder::class,
             MovieSeeder::class,
+            SubscriberSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
