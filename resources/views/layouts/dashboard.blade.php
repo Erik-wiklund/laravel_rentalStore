@@ -176,7 +176,12 @@
                             <span>Reports</span>
                         </a>
                     </li>
-
+                    <li>
+                        <a class="" href="{{ route('subscriptions.index') }}">
+                            <i class="fa fa-envelope"></i>
+                            <span>Subscriptions</span>
+                        </a>
+                    </li>
 
 
 
